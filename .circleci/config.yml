@@ -6,16 +6,18 @@ jobs:
       - image: cimg/openjdk:11.0
     working_directory: ~/repo
     steps:
-      - name: Build
-      - run: mvn -B -DskipTests clean package
+      - run:
+         name: Build
+         command: mvn -B -DskipTests clean package
 
   test:
     docker:
       - image: cimg/openjdk:11.0
     working_directory: ~/repo
     steps:
-      - name: Test
-      - run: mvn test
+      - run:
+         name: Test
+         command: mvn test
 
 workflows:
   version: 2
